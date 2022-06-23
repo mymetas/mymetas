@@ -162,7 +162,7 @@ module.exports = {
         config: {
           clientID: "39618491b5342b59d97b",
           clientSecret: "b6e7882237951cdd3c8a97a4e91b9324a01f70a6",
-          repo: "mymetas_private",
+          repo: "mymetas",
           owner: "mymetas",
           admin: ["mymetas"],
           pagerDirection: "first",
