@@ -1,10 +1,5 @@
-- 👋 Hi, I’m @mymetas
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+# About
 
-<!---
-mymetas/mymetas is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+### 1, fork from https://github.com/izackwu/blog
+### 2, netlify.com
+### 3, private web CMS
