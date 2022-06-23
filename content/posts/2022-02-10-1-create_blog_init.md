@@ -34,8 +34,13 @@ react的CMS封装项目,个人blog选gatsby，官网可选择next框架.
       - www  --> mymetas.org
     - netlify 除生成默认的wonderful-williams-f800f9.netlify.app 外，需要额外增加一个blog域名设置： blog.mymetas.org 
     - godaddy解析blog到netlify平台，netlify平台必须增加blog.mymetas.org设置，并设置使用netlify缺省证书，否则出现访问blog.mymetas.org 的错误： Not Found - Request ID:
-* [https://www.namesilo.com/](https://www.namesilo.com/) 
-  - godaddy  申请失败， 换成 namesilo， 配置类似, 域名 mymetas.top 
+
+* [https://www.namesilo.com/](https://www.namesilo.com/) , [namesilo 使用简介](https://iyideng.vip/note/namesilo-domain-registrar.html)
+  - godaddy  申请失败， 换成 namesilo， 配置类似, 域名 mymetas.top      
+netlify 配置截图：
+<img width="921" alt="image" src="https://user-images.githubusercontent.com/97513521/175199279-cb48fff3-be32-4be3-a85a-75badd298041.png">
+namesili 配置截图：
+<img width="962" alt="image" src="https://user-images.githubusercontent.com/97513521/175201226-ff29f474-6b43-4ce4-9f87-ca90161a51b9.png">
 
 * [gtalk 评论设置](https://www.jianshu.com/p/4242bb065550)
 
