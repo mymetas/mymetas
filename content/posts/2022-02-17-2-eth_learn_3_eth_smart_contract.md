@@ -11,6 +11,6 @@ redirect_from:
 noComments: false
 ---
 
-> 以太坊开发（三）以太坊智能合约
+>> 以太坊开发（三）以太坊智能合约
 
 ## 一、
