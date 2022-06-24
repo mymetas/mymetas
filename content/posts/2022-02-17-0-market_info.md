@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 市场信息
+title: 市场信息汇总
 tags:
   - 市场信息
 description: 市场信息
