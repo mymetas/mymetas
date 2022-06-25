@@ -272,3 +272,30 @@ npm start
 
 npm install -g @remix-project/remixd
 
+## 五、ganache-cli 使用
+> ganache-cli 是geth节点的简化版本，专用于开发、测试
+
+### 1. 命令
+* [https://trufflesuite.com/ganache/](https://trufflesuite.com/ganache/)
+  - [https://trufflesuite.com/docs/ganache/](https://trufflesuite.com/docs/ganache/)
+    * [https://github.com/trufflesuite/ganache#getting-started](https://github.com/trufflesuite/ganache#getting-started)
+
+* ### [gnache-cli  参数说明](http://blog.hubwiz.com/2018/04/16/ganache-cli-manual/)
+* gnache -d # -d代表固定预设的10个账号
+* geth attach http://localhost:8545    # 进入控制台
+* gnache-cli -d --db=./gnache_data     # gnache/gnache-cli 默认是内存，重启后所有数据（交易等）都会reset，如果要保存数据，则需要--db参数，这样数据会保存到本地目录文件中　
+
+```
+# curl -X POST http://localhost:8545 -d '{
+ "jsonrpc":"2.0",
+ "method":"web3_clientVersion",
+ "params":[],
+ "id":1337
+ }'  |  jq
+```
+
+### 2. JSON 参数速查表
+* [JSON-RPC API 官方](https://ethereum.org/en/developers/docs/apis/json-rpc/)
+  - [eth json rpc 中文速查列表](http://cw.hubwiz.com/card/c/ethereum-json-rpc-api/)
+
+  curl -X POST http://localhost:8545 -s -d '{"jsonrpc":"2.0","method":"web3_sha3","params":["hello,ethereum"]}' | jq 
