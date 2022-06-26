@@ -11,7 +11,9 @@ redirect_from:
 noComments: false
 ---
 
->> 以太坊开发（二）以太坊开发环境
+> 以太坊开发（二）以太坊开发环境:    
+>> 使用geth或者ganache可以启动本地eth节点测试环境。    
+>> geth attach 可以登陆本地控制台。
 
 ## 一、以太坊概述
 
