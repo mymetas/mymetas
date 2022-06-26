@@ -281,10 +281,14 @@ npm install -g @remix-project/remixd
     * [https://github.com/trufflesuite/ganache#getting-started](https://github.com/trufflesuite/ganache#getting-started)
 
 * ### [gnache-cli  参数说明](http://blog.hubwiz.com/2018/04/16/ganache-cli-manual/)
-* gnache -d # -d代表固定预设的10个账号
+* -b 或r –blockTime： 指定自动挖矿的blockTime，以秒为单位。默认值为0，表示不进行自动挖矿。
+* -n 或 –secure： 默认锁定所有测试账户，有利于进行第三方交易签名。
+* –debug：输出VM操作码，用于调试。
+* gnache -d # -d代表固定预设的10个账号(第一个为基础账户（coinbase)）
 * geth attach http://localhost:8545    # 进入控制台
-* gnache-cli -d --db=./gnache_data     # gnache/gnache-cli 默认是内存，重启后所有数据（交易等）都会reset，如果要保存数据，则需要--db参数，这样数据会保存到本地目录文件中　
-
+* gnache-cli -d --db=./gnache_data     # gnache/gnache-cli 默认是内存，重启后所有数据（交易等）都会reset，如果要保存数据，则需要--db参数，这样数据会保存到本地目录文件中　 
+* ganache-cli --secure --unlock "0x1234..." --unlock "0xabcd..." 
+* ganache-cli --secure -u 0 -u 1 .   
 ```
 # curl -X POST http://localhost:8545 -d '{
  "jsonrpc":"2.0",
@@ -292,7 +296,7 @@ npm install -g @remix-project/remixd
  "params":[],
  "id":1337
  }'  |  jq
-```
+ ```
 
 ### 2. JSON 参数速查表
 * [JSON-RPC API 官方](https://ethereum.org/en/developers/docs/apis/json-rpc/)
@@ -307,4 +311,20 @@ npm install -g @remix-project/remixd
 ### "hello,ethereum" 需要转换成16进制数据 68656c6c6f2c657468657265756d (http://www.metools.info/learn/l120.html)
 
 curl -X POST http://localhost:8545 -s -d '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f2c657468657265756d"]}' | jq
+```
+```
+curl -X POST http://localhost:8545 -d '{
+ "jsonrpc":"2.0",
+ "method": "eth_protocolVersion",
+ "params":[],
+ "id":123
+ }' | jq 
+
+curl -X POST http://localhost:8545 -d '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":64}'
+
+curl -X POST http://localhost:8545 -d '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":64}'
+
+curl -X POST  http://localhost:8545  -d  '{"jsonrpc":"2.0","method":"eth_sign","params":["0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1", "0x68656c6c6f2c657468657265756d"],"id":1}'
+
+curl -X POST http://localhost:8545 -s -d '{"jsonrpc":"2.0","method":"web3_sha3","params":["hello,ethereum"]}' 
 ```
