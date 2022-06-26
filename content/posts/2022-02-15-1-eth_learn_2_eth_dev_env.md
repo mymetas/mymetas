@@ -298,4 +298,13 @@ npm install -g @remix-project/remixd
 * [JSON-RPC API 官方](https://ethereum.org/en/developers/docs/apis/json-rpc/)
   - [eth json rpc 中文速查列表](http://cw.hubwiz.com/card/c/ethereum-json-rpc-api/)
 
+```
+### "hello,ethereum" 需要转换成16进制数据 
   curl -X POST http://localhost:8545 -s -d '{"jsonrpc":"2.0","method":"web3_sha3","params":["hello,ethereum"]}' | jq 
+```
+
+```
+### "hello,ethereum" 需要转换成16进制数据 68656c6c6f2c657468657265756d (http://www.metools.info/learn/l120.html)
+
+curl -X POST http://localhost:8545 -s -d '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f2c657468657265756d"]}' | jq
+```
