@@ -13,7 +13,21 @@ noComments: false
 
 >> 以太坊开发（五）以太坊Go开发
 
-## 一、 go & 以太坊 参考
+## 一、 一个例子：[https://github.com/mymetas/mymetas_pub](https://github.com/mymetas/mymetas_pub)
+
+* rpc dial [RPC 参数说明](http://blog.mymetas.top/posts/2022-02-15-1-eth_learn_2_eth_dev_env/#2-json-%E5%8F%82%E6%95%B0%E9%80%9F%E6%9F%A5%E8%A1%A8)
+* mymetas_pub中的command封装了go语言对eth的rpc封装
+
+## 1. 账户、私钥、地址
+	* 私钥可生成公钥,公钥再hash生成20字节的账户地址,可合成账户地址/文件（例如keystore，该文件可另外加密，以保护文件中的私钥信息的安全性）
+	* 私钥只能由某一个用户掌握,绝对不能泄漏。公钥匙是对外公开的地址（对外公开场景例如：公开可见的收钱地址）
+	* 私钥是一个16进制字符串，“助记词” 是一组单词（例如12个英文单词）
+	* 以太坊的账户可无限生成（离线），因此以太坊系统不掌控用户私钥/公钥/账户地址），以太坊只记录用户的历史
+	* <https://github.com/mymetas/mymetas_pub/> 项目中 GenerateKey 函数展示了 私钥生成公钥，然后生成地址的方法 
+## 2， 智能合约
+## 3， 监听事件
+
+## 二、 go & 以太坊 参考
 
 * [dapp 分享社区， 以太坊，ipfs 的demo开发](https://kauri.io/##_top)
 * [一个 dapp 应用架构- 基于区块链的图像分享](https://blog.51cto.com/u_15069472/3442850)
