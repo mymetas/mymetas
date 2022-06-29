@@ -24,7 +24,30 @@ noComments: false
 	* 私钥是一个16进制字符串，“助记词” 是一组单词（例如12个英文单词）
 	* 以太坊的账户可无限生成（离线），因此以太坊系统不掌控用户私钥/公钥/账户地址），以太坊只记录用户的历史
 	* <https://github.com/mymetas/mymetas_pub/> 项目中 GenerateKey 函数展示了 私钥生成公钥，然后生成地址的方法 
+## 2. 状态、交易、收据
+  * 以太坊是个全球状态机器: 所谓状态机，就是一组数据、一批内外部事件。内部、外部事件触发数据的改变，称为状态机变迁。本质上以太坊就是账户、智能合约内部的数据，被外部时间触发，引发的状态机变迁，而以太坊状态机的正确性、不可篡改性，是通过全球的节点通过共识算法来保证。
+    - 状态跃迁，自带时间戳，因为以太坊也称为 可信时间机器
+  * 交易：普通交易，裸交易，节点进行签名（节点使用私钥）称为普通交易，外部应用（典型的如用户web3应用，启动metamask钱包，对交易数据进行签名）直接将签名后的数据发送到节点，由节点转发至共识网络，称为裸交易。
+    - eth_sendTransaction
+	- eth_sendRawTransaction
+  * 收据： 以太坊网络收到交易数据，还需要经过多个挖矿周期，才能最终确认记录到公共账本中,因此提交到网络后，会返还一个收据数据，后期可用这个id查询交易状态。
 ## 2， 智能合约
+  * [智能合约小结](/posts/2022-02-16-1-eth_learn_3_eth_smart_contract/)
+  * 智能合约最早是1994年，Nick Szabo提出，但没有执行环境，区块链系统具有可追溯，不可篡改、自动执行的特征，才真正实现了智能合约（但目前就算以太坊也只是部分实现、且特定于特定应用场景）
+  * <https://github.com/mymetas/mymetas_pub/> 项目, internal/service/eth/build_contract.sh 调用 solc, abigen变异sol智能合约文件。编译结果在contract/build, contract/wrapper 两个目录中。
+  ```
+  $ ls internal/service/eth/build_contract.sh
+  $ tree internal/service/eth/contract/
+internal/service/eth/contract/
+├── TestErc20Token.sol
+├── build
+│   ├── TestErc20Token.abi
+│   └── TestErc20Token.bin
+└── wrapper
+    └── testerc20token
+        └── TestErc20Token.go
+  ```
+
 ## 3， 监听事件
 
 ## 二、 go & 以太坊 参考
