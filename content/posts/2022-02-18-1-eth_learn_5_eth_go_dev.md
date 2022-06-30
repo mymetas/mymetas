@@ -49,6 +49,22 @@ internal/service/eth/contract/
   ```
 
 ## 3， 监听事件
+* pull事件： 用户主动轮询
+* push事件： 用户注册，以太坊主动推送
+  - 只支持websocket连接
+***不论pull ，push事件，用户都可以指定过滤器filter，获取指定内容***
+* 监听block变化，已经出块
+  - eth_newBlockFilter,  创建一个新块过滤器，然后可以用eth_getFilterChanges 检查过滤器更新（pull模式，用户主动查询拉取）
+  - client.SubscribeNewHeader, 订阅新区块事件（ws连接），实时监听通道，获取通知消息（以太坊主动通知）
+* 监听待出块消息，pengding未决出块
+  - client.EthNewPendingTransactionFilter 注册pending块
+  - 其余和block块pull类似
+  - SubscribeNewPendingTransactions, 订阅pengding块，其余和block块push类似
+* 日志监听类型
+  - eth_newFilter , 过滤日志注册， opts 设置过滤规则
+	- opts 为空，监听所有日志
+  - SubscribeFilterLogs, 注册push日志功能， ethereum.FilterQuery 指定查询条件
+  - watchTransfer, 监听事件注册， bind.watchOpts设置监听事件类型和参数
 
 ## 二、 go & 以太坊 参考
 
