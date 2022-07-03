@@ -5,3 +5,8 @@
 2, use gatsby & netlify.com, namesilo.com
 3, log myself & into metas!
 ```
+
+```
+#npm install
+#npm start
+```
